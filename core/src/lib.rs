@@ -27,13 +27,11 @@ mod field;
 #[macro_use]
 mod group;
 mod der;
-mod ecdh;
-mod ecdsa;
 mod ecmult;
 mod error;
 mod scalar;
-
 pub use crate::error::Error;
+pub mod extend;
 
 /// Curve related structs.
 pub mod curve {
