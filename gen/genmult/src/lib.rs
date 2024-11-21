@@ -1,10 +1,10 @@
 #![allow(clippy::needless_range_loop)]
 
-use libsecp256k1_core::curve::ECMultGenContext;
 use std::{
     fs::File,
     io::{Error, Write},
 };
+use tiny_ec_core::curve::ECMultGenContext;
 
 pub fn generate_to(file: &mut File) -> Result<(), Error> {
     let context = ECMultGenContext::new_boxed();

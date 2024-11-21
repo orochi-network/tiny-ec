@@ -10,7 +10,7 @@ edition = "2018"
 resolver = "2"
 
 [dependencies]
-libsecp256k1-core = { path = "core", default-features = false }
+tiny-ec-core = { version = "0.3.0", path = "core", default-features = false }
 arrayref = "0.3"
 digest = "0.9"
 typenum = { version = "1.12", optional = true }
@@ -32,7 +32,7 @@ libsecp256k1-gen-genmult = { version = "0.3.0", path = "gen/genmult" }
 
 [features]
 default = ["std", "static-context"]
-std = ["libsecp256k1-core/std"]
+std = ["tiny-ec-core/std"]
 static-context = []
 
 [workspace]
