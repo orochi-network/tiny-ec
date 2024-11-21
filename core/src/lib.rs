@@ -26,12 +26,12 @@ extern crate alloc;
 mod field;
 #[macro_use]
 mod group;
-mod der;
 mod ecmult;
 mod error;
-mod scalar;
-pub use crate::error::Error;
 pub mod extend;
+mod scalar;
+
+pub use crate::error::Error;
 
 /// Curve related structs.
 pub mod curve {
@@ -66,6 +66,4 @@ pub mod util {
         },
         group::{globalz_set_table_gej, set_table_gej_var, AFFINE_INFINITY, JACOBIAN_INFINITY},
     };
-
-    pub use crate::der::{Decoder, SignatureArray};
 }

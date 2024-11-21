@@ -19,10 +19,7 @@ pub use libsecp256k1_core::*;
 use arrayref::{array_mut_ref, array_ref};
 use core::convert::TryFrom;
 
-use crate::{
-    curve::{Affine, ECMultContext, ECMultGenContext, Field, Jacobian, Scalar},
-    util::Decoder,
-};
+use crate::curve::{Affine, ECMultContext, ECMultGenContext, Field, Jacobian, Scalar};
 
 #[cfg(all(feature = "static-context"))]
 /// A static ECMult context.

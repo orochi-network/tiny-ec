@@ -1,5 +1,5 @@
 [package]
-name = "libsecp256k1"
+name = "tiny-ec"
 description = "Pure Rust primitives for libecvrf."
 license = "Apache-2.0"
 version = "0.1.1"

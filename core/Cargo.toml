@@ -9,6 +9,7 @@ keywords = ["crypto", "ECDSA", "secp256k1", "bitcoin", "no_std"]
 edition = "2018"
 
 [dependencies]
+serde = { version = "1.0.215" }
 subtle = { version = "2.2", default-features = false }
 crunchy = "0.2"
 digest = "0.9"
