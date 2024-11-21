@@ -3,8 +3,8 @@ name = "libsecp256k1-core"
 description = "Core functions for pure Rust secp256k1 implementation."
 license = "Apache-2.0"
 version = "0.3.0"
-authors = ["Wei Tang <hi@that.world>"]
-repository = "https://github.com/paritytech/libsecp256k1"
+authors = ["Wei Tang <hi@that.world>", "Chiro Hiro <chiro@orochi.network>"]
+repository = "https://github.com/orochi-network/tiny-ec"
 keywords = ["crypto", "ECDSA", "secp256k1", "bitcoin", "no_std"]
 edition = "2018"
 

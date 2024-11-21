@@ -2,7 +2,7 @@
 name = "tiny-ec"
 description = "Pure Rust primitives for libecvrf."
 license = "Apache-2.0"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Wei Tang <hi@that.world>", "Chiro Hiro <chiro@orochi.network>"]
 repository = "https://github.com/orochi-network/tiny-ec"
 keywords = ["crypto", "ECDSA", "ecvrf", "no_std"]
@@ -10,7 +10,7 @@ edition = "2018"
 resolver = "2"
 
 [dependencies]
-libsecp256k1-core = { version = "0.3.0", path = "core", default-features = false }
+libsecp256k1-core = { path = "core", default-features = false }
 arrayref = "0.3"
 digest = "0.9"
 typenum = { version = "1.12", optional = true }
