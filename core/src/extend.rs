@@ -58,6 +58,17 @@ impl Into<[u8; 64]> for Affine {
     }
 }
 
+impl Affine {
+    pub fn compose(x: &Field, z: &Field) -> Affine {
+        let mut r = Affine::default();
+        r.x = x.clone();
+        r.y = z.clone();
+        r.x.normalize();
+        r.y.normalize();
+        r
+    }
+}
+
 struct AffineBytesVisitor;
 
 #[cfg(feature = "std")]

@@ -414,12 +414,11 @@ impl Field {
         let mut t9: u32;
         let mut z0: u32;
         let mut z1: u32;
-        let x: u32;
 
         t0 = self.n[0];
         t9 = self.n[9];
 
-        x = t9 >> 22;
+        let x = t9 >> 22;
         t0 += x * 0x3d1;
 
         z0 = t0 & 0x3ffffff;
