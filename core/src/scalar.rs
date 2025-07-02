@@ -1,6 +1,6 @@
+use crate::choice::Choice;
 use core::ops::{Add, AddAssign, Mul, MulAssign, Neg};
 use crunchy::unroll;
-use subtle::Choice;
 
 const SECP256K1_N: [u32; 8] = [
     0xD0364141, 0xBFD25E8C, 0xAF48A03B, 0xBAAEDCE6, 0xFFFFFFFE, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,

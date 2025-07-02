@@ -1,5 +1,4 @@
-use core::{cmp::Ordering, convert::TryInto, fmt, panic};
-use serde::{de, Deserialize, Serialize};
+use core::{cmp::Ordering, convert::TryInto, panic};
 
 use crate::{
     curve::{Affine, Jacobian, Scalar},
@@ -69,42 +68,6 @@ impl Affine {
     }
 }
 
-struct AffineBytesVisitor;
-
-#[cfg(feature = "std")]
-impl<'de> de::Visitor<'de> for AffineBytesVisitor {
-    type Value = Affine;
-
-    fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        formatter.write_str("a byte slice that is 64 bytes in length")
-    }
-
-    fn visit_bytes<E>(self, value: &[u8]) -> Result<Self::Value, E>
-    where
-        E: de::Error,
-    {
-        Ok(Affine::from(value))
-    }
-}
-
-impl Serialize for Affine {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        [self.x.b32(), self.y.b32()].concat().serialize(serializer)
-    }
-}
-
-impl<'de> Deserialize<'de> for Affine {
-    fn deserialize<D>(deserializer: D) -> Result<Affine, D::Error>
-    where
-        D: serde::Deserializer<'de>,
-    {
-        deserializer.deserialize_bytes(AffineBytesVisitor)
-    }
-}
-
 impl PartialOrd for Scalar {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
@@ -143,24 +106,5 @@ impl From<&[u8; 32]> for Scalar {
         let mut r = Scalar::default();
         r.set_b32(bytes).unwrap_u8();
         r
-    }
-}
-
-impl Serialize for Scalar {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        self.0.serialize(serializer)
-    }
-}
-
-impl<'de> Deserialize<'de> for Scalar {
-    fn deserialize<D>(deserializer: D) -> Result<Scalar, D::Error>
-    where
-        D: serde::Deserializer<'de>,
-    {
-        let bytes = <[u8; 32]>::deserialize(deserializer)?;
-        Ok(Scalar::from(&bytes[..]))
     }
 }

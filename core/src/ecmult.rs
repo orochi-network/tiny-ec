@@ -1,3 +1,4 @@
+use crate::choice::Choice;
 use crate::{
     field::Field,
     group::{globalz_set_table_gej, set_table_gej_var, Affine, AffineStorage, Jacobian, AFFINE_G},
@@ -9,7 +10,6 @@ use alloc::{
     vec,
     vec::Vec,
 };
-use subtle::Choice;
 
 pub const WINDOW_A: usize = 5;
 pub const WINDOW_G: usize = 16;

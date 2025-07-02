@@ -1,5 +1,4 @@
 //! Core libraries for libsecp256k1.
-
 #![allow(
     clippy::cast_ptr_alignment,
     clippy::identity_op,
@@ -26,6 +25,7 @@ extern crate alloc;
 mod field;
 #[macro_use]
 mod group;
+pub mod choice;
 mod ecmult;
 mod error;
 pub mod extend;
