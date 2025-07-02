@@ -34,7 +34,9 @@ pub static ECMULT_CONTEXT: ECMultContext =
 pub static ECMULT_GEN_CONTEXT: ECMultGenContext =
     unsafe { ECMultGenContext::new_from_raw(include!(concat!(env!("OUT_DIR"), "/const_gen.rs"))) };
 
-#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Serialize, Deserialize)]
 /// Public key on a secp256k1 curve.
 pub struct PublicKey(Affine);
 

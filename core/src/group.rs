@@ -1,6 +1,8 @@
+use serde::{Deserialize, Serialize};
+
 use crate::field::{Field, FieldStorage};
 
-#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Serialize, Deserialize)]
 /// A group element of the secp256k1 curve, in affine coordinates.
 pub struct Affine {
     pub x: Field,

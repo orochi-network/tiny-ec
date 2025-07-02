@@ -3,13 +3,15 @@ use core::{
     ops::{Add, AddAssign, Mul, MulAssign},
 };
 
+use serde::{Deserialize, Serialize};
+
 macro_rules! debug_assert_bits {
     ($x: expr, $n: expr) => {
         debug_assert!($x >> $n == 0);
     };
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 /// Field element for secp256k1.
 pub struct Field {
     /// Store representation of X.
